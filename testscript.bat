@@ -1,4 +1,5 @@
-Echo Off                              
-Echo Hello World. Here is my first line of shell scripting code!
-Echo Hello World. Here is my second line of shell scripting code!                              
-Echo Hello World. Here is my third line of shell scripting code!
+@echo off
+For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
+For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
+echo %mydate%_%mytime%
+echo Hello World %mydate%_%mytime% >> testfile.txt
